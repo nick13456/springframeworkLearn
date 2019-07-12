@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <context:component-scan base-package="spring"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+<!--
+
+    <tx:advice id="txAdvisor" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="transfer" isolation="DEFAULT" read-only="false" propagation="REQUIRED" timeout="-1"/>
+            <tx:method name="findAll" isolation="DEFAULT" read-only="true" propagation="SUPPORTS" timeout="5"/>
+            <tx:method name="find*" timeout="1" read-only="true"/>          &lt;!&ndash;可以使用通配符*来进行配置&ndash;&gt;
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="pc11" expression="execution(* spring.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvisor" pointcut-ref="pc11"/>
+    </aop:config>
+-->
+
+</beans>
